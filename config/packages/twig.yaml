@@ -1,0 +1,57 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    exception_controller: null
+
+    form_themes:
+        - ApplicationToolsBundle:Form:dependent_filtered_entity_widget.html.twig
+        - ApplicationToolsBundle:Form:editable_combobox_widget.html.twig
+        - ApplicationToolsBundle:Form:formfield_cloacker_widget.html.twig
+
+application_tools:
+    dependent_filtered_entities:
+        #rubro_by_ramo:
+        #    form_options:
+        #        entity_alias: rubro_by_ramo
+        #        class: App:Rubros
+        #        entity_field: artRubro
+        #        parent_entity_field: rubRamoId
+        #        parent_form_field: artRamo
+        #        choice_label: rubDescripcion
+        #        no_result_msg: 'Sin resultados'
+        #        placeholder: '--seleccionar--'
+        #    search_options:
+        #        role: ROLE_USER
+        #        order_field: rubDescripcion
+        #        order_direction: ASC
+
+        #subrubro_by_rubro:
+        #    form_options:
+        #        entity_alias: subrubro_by_rubro
+        #        class: App:Subrubros
+        #        entity_field: artSubrubro
+        #        parent_entity_field: subrRubroId
+        #        parent_form_field: artRubro
+        #        choice_label: subrDescripcion
+        #        no_result_msg: 'Sin resultados'
+        #        placeholder: '--seleccionar--'
+        #    search_options:
+        #        role: ROLE_USER
+        #        order_field: subrDescripcion
+        #        order_direction: ASC
+
+        #localidad_by_provincia:
+        #    form_options:
+        #        entity_alias: localidad_by_provincia
+        #        class: App:Localidades
+        #        entity_field: prvLocalidad
+        #        parent_entity_field: locPciaId
+        #        parent_form_field: prvProvincia
+        #        choice_label: locDescripcion
+        #        no_result_msg: 'Sin resultados'
+        #        placeholder: '--seleccionar--'
+        #    search_options:
+        #        role: ROLE_USER
+        #        order_field: locDescripcion
+        #        order_direction: ASC

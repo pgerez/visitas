@@ -1,0 +1,12 @@
+# config/packages/sonata_admin.yaml
+
+sonata_admin:
+    title: Visitas MPF 
+    templates:
+        layout: 'standard_layout.html.twig'
+        
+sonata_block:
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
