@@ -46,4 +46,66 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-     
+
+    admin.afiliados:
+        class: App\Admin\AfiliadosAdmin
+        arguments: [~, App\Entity\Afiliados, App\Controller\AfiliadosAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Afiliados }
+        public: true
+
+    admin.sucursales:
+        class: App\Admin\SucursalesAdmin
+        arguments: [~, App\Entity\Sucursales, App\Controller\SucursalesAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Sucursales }
+        public: true
+
+    admin.profesionales:
+        class: App\Admin\ProfesionalesAdmin
+        arguments: [~, App\Entity\Profesionales, App\Controller\ProfesionalesAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Profesionales }
+        public: true
+
+    admin.profesionales_equipo_trabajo:
+        class: App\Admin\ProfesionalesEquipoTrabajoAdmin
+        arguments: [~, App\Entity\ProfesionalesEquipoTrabajo, App\Controller\ProfesionalesEquipoTrabajoAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ProfesionalesEquipoTrabajo }
+        public: true
+
+    admin.equipo_trabajo:
+        class: App\Admin\EquipoTrabajoAdmin
+        arguments: [~, App\Entity\EquipoTrabajo, App\Controller\EquipoTrabajoAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: EquipoTrabajo }
+        public: true
+
+    admin.ordenprestacion:
+        class: App\Admin\OrdenprestacionAdmin
+        arguments: [~, App\Entity\Ordenprestacion, App\Controller\OrdenprestacionAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Ordenprestacion }
+        public: true
+
+    admin.visitas:
+        class: App\Admin\VisitasAdmin
+        arguments: [~, App\Entity\Visitas, App\Controller\VisitasAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Visitas }
+        public: true
+
+    admin.afiliadosestados:
+        class: App\Admin\AfiliadosestadosAdmin
+        arguments: [~, App\Entity\Afiliadosestados, App\Controller\AfiliadosestadosAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Afiliadosestados }
+        public: true
+
+    admin.profesiones:
+        class: App\Admin\ProfesionesAdmin
+        arguments: [~, App\Entity\Profesiones, App\Controller\ProfesionesAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Profesiones }
+        public: true
