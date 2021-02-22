@@ -41,6 +41,16 @@ class Visitas
      */
     private $profesionaleEquipoTrabajos;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $numero_visita;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $observacion;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,6 +76,30 @@ class Visitas
     public function setProfesionaleEquipoTrabajos(?ProfesionalesEquipoTrabajo $profesionaleEquipoTrabajos): self
     {
         $this->profesionaleEquipoTrabajos = $profesionaleEquipoTrabajos;
+
+        return $this;
+    }
+
+    public function getNumeroVisita(): ?int
+    {
+        return $this->numero_visita;
+    }
+
+    public function setNumeroVisita(int $numero_visita): self
+    {
+        $this->numero_visita = $numero_visita;
+
+        return $this;
+    }
+
+    public function getObservacion(): ?string
+    {
+        return $this->observacion;
+    }
+
+    public function setObservacion(?string $observacion): self
+    {
+        $this->observacion = $observacion;
 
         return $this;
     }

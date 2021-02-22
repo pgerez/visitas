@@ -12,6 +12,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 final class VisitasAdmin extends AbstractAdmin
 {
+    
+    public function  configure(){
+        $this->parentAssociationMapping = 'ordenprestacions';
+    }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
@@ -23,7 +27,8 @@ final class VisitasAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->add('id')
+            ->add('profesionaleEquipoTrabajos.profesionales')
+            ->add('numero_visita')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -36,7 +41,9 @@ final class VisitasAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
-            ->add('id')
+            #->add('id')
+            ->add('numero_visita')
+            ->add('observacion')
             ;
     }
 

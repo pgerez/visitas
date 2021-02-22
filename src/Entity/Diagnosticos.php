@@ -41,6 +41,11 @@ class Diagnosticos
      * @ORM\Column(name="nombre", type="string", length=300, nullable=true)
      */
     private $nombre;
+    
+    
+    public function __toString() {
+        return (string) $this->getNombre();
+    }
 
     public function getId(): ?int
     {

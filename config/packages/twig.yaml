@@ -8,6 +8,8 @@ twig:
         - ApplicationToolsBundle:Form:dependent_filtered_entity_widget.html.twig
         - ApplicationToolsBundle:Form:editable_combobox_widget.html.twig
         - ApplicationToolsBundle:Form:formfield_cloacker_widget.html.twig
+        #- '@SonataCore\Form\datepicker.html.twig'
+        - '@SonataForm\Form\datepicker.html.twig'
 
 application_tools:
     dependent_filtered_entities:

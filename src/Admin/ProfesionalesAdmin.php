@@ -39,11 +39,12 @@ final class ProfesionalesAdmin extends AbstractAdmin
             ->add('nombre')
             ->add('direccion')
             ->add('telefono')
-            ->add('fechanacimiento')
-            ->add('fechainicio')
-            ->add('fechabaja')
-            ->add('estadoid')
-            ->add('curriculum')
+            ->add('profesionid', null, ['label' => 'Profesion'])
+            #->add('fechanacimiento')
+            #->add('fechainicio')
+            #->add('fechabaja')
+            #->add('estadoid')
+            #->add('curriculum')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],

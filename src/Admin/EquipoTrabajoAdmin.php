@@ -43,7 +43,7 @@ final class EquipoTrabajoAdmin extends AbstractAdmin
                           [
 
                 // Prevents the "Delete" option from being displayed
-                'label' => false
+                'label' => false, 'required' => false
             ], [
                 'edit' => 'inline',
                 'inline' => 'table',
@@ -58,4 +58,6 @@ final class EquipoTrabajoAdmin extends AbstractAdmin
             ->add('id')
             ;
     }
+    
+   
 }

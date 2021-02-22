@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -154,6 +156,29 @@ class Afiliados
      * })
      */
     private $motivobaja;
+    
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="App\Entity\Historiaclinica", mappedBy="afiliadoid", cascade={"all"}, orphanRemoval=true)
+     *
+     */
+    private $historiaclinicas;
+   
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="App\Entity\Ordenprestacion", mappedBy="afiliadoid", cascade={"all"}, orphanRemoval=true)
+     *
+     */
+    private $ordenprestacions;
+
+    public function __construct()
+    {
+        $this->historiaclinicas = new ArrayCollection();
+        $this->ordenprestacions = new ArrayCollection();
+    }
+    
+
+ 
     
     public function __toString() 
     {
@@ -368,6 +393,70 @@ class Afiliados
 
         return $this;
     }
+
+    /**
+     * @return Collection|Historiaclinica[]
+     */
+    public function getHistoriaclinicas(): Collection
+    {
+        return $this->historiaclinicas;
+    }
+
+    public function addHistoriaclinica(Historiaclinica $historiaclinica): self
+    {
+        if (!$this->historiaclinicas->contains($historiaclinica)) {
+            $this->historiaclinicas[] = $historiaclinica;
+            $historiaclinica->setAfiliadoid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHistoriaclinica(Historiaclinica $historiaclinica): self
+    {
+        if ($this->historiaclinicas->removeElement($historiaclinica)) {
+            // set the owning side to null (unless already changed)
+            if ($historiaclinica->getAfiliadoid() === $this) {
+                $historiaclinica->setAfiliadoid(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ordenprestacion[]
+     */
+    public function getOrdenprestacions(): Collection
+    {
+        return $this->ordenprestacions;
+    }
+
+    public function addOrdenprestacion(Ordenprestacion $ordenprestacion): self
+    {
+        if (!$this->ordenprestacions->contains($ordenprestacion)) {
+            $this->ordenprestacions[] = $ordenprestacion;
+            $ordenprestacion->setAfiliadoid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdenprestacion(Ordenprestacion $ordenprestacion): self
+    {
+        if ($this->ordenprestacions->removeElement($ordenprestacion)) {
+            // set the owning side to null (unless already changed)
+            if ($ordenprestacion->getAfiliadoid() === $this) {
+                $ordenprestacion->setAfiliadoid(null);
+            }
+        }
+
+        return $this;
+    }
+
+  
+
+   
 
 
 }
