@@ -34,6 +34,11 @@ class Transmision
      */
     private $modulo;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ProfesionalesEquipoTrabajo::class, mappedBy="transmision")
+     */
+    private $profesionalesEquipoTrabajos;
+
 
     public function __toString() 
     {
@@ -43,6 +48,8 @@ class Transmision
     public function __construct()
     {
         $this->modulo = new ArrayCollection();
+        $this->profesionalesEquipoTrabajoTransmisions = new ArrayCollection();
+        $this->profesionalesEquipoTrabajos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -82,6 +89,37 @@ class Transmision
     public function setModulo(?Modulo $modulo): self
     {
         $this->modulo = $modulo;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection|ProfesionalesEquipoTrabajo[]
+     */
+    public function getProfesionalesEquipoTrabajos(): Collection
+    {
+        return $this->profesionalesEquipoTrabajos;
+    }
+
+    public function addProfesionalesEquipoTrabajo(ProfesionalesEquipoTrabajo $profesionalesEquipoTrabajo): self
+    {
+        if (!$this->profesionalesEquipoTrabajos->contains($profesionalesEquipoTrabajo)) {
+            $this->profesionalesEquipoTrabajos[] = $profesionalesEquipoTrabajo;
+            $profesionalesEquipoTrabajo->setTransmision($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProfesionalesEquipoTrabajo(ProfesionalesEquipoTrabajo $profesionalesEquipoTrabajo): self
+    {
+        if ($this->profesionalesEquipoTrabajos->removeElement($profesionalesEquipoTrabajo)) {
+            // set the owning side to null (unless already changed)
+            if ($profesionalesEquipoTrabajo->getTransmision() === $this) {
+                $profesionalesEquipoTrabajo->setTransmision(null);
+            }
+        }
 
         return $this;
     }

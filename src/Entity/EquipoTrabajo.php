@@ -27,7 +27,7 @@ class EquipoTrabajo
     /**
      * @var \Ordenprestacion
      *
-     * @ORM\ManyToOne(targetEntity="Ordenprestacion")
+     * @ORM\ManyToOne(targetEntity="Ordenprestacion",cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ordenprestacion", referencedColumnName="ID")
      * })
@@ -44,7 +44,7 @@ class EquipoTrabajo
     public function __construct()
     {
         $this->profesionalesequipotrabajos = new ArrayCollection();
-        $this->addProfesionalesequipotrabajo(new ProfesionalesEquipoTrabajo());
+        #$this->addProfesionalesequipotrabajo(new ProfesionalesEquipoTrabajo());
     }
     
 

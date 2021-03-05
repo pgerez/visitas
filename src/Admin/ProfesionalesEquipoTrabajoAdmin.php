@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\Form\Type\CollectionType;
 
 final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
 {
@@ -42,9 +43,12 @@ final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
     {
         $formMapper
             #->add('id')
+            ->add('transmision',  ModelListType::class, array(
+                'by_reference' => false,
+            ))
             ->add('profesionales',  ModelListType::class, array(
                 'by_reference' => false,
-            ))   
+            ))
             ->add('cantidad', null, ['label' => 'Cantidad de visitas'])
             #->add('observaciones')
             ;

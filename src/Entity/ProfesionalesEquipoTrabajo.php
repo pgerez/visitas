@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,14 @@ class ProfesionalesEquipoTrabajo
      */
     private $profesionales;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Transmision::class, inversedBy="profesionalesEquipoTrabajos")
+     */
+    private $transmision;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +114,18 @@ class ProfesionalesEquipoTrabajo
     public function setProfesionales(?Profesionales $profesionales): self
     {
         $this->profesionales = $profesionales;
+
+        return $this;
+    }
+
+    public function getTransmision(): ?Transmision
+    {
+        return $this->transmision;
+    }
+
+    public function setTransmision(?Transmision $transmision): self
+    {
+        $this->transmision = $transmision;
 
         return $this;
     }
