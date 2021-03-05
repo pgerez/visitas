@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\App\Entity\Visita;
+use App\Entity\Profesionales;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Visita|null find($id, $lockMode = null, $lockVersion = null)
- * @method Visita|null findOneBy(array $criteria, array $orderBy = null)
- * @method Visita[]    findAll()
- * @method Visita[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Profesionales|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Profesionales|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Profesionales[]    findAll()
+ * @method Profesionales[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VisitaRepository extends ServiceEntityRepository
+class ProfesionalesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Visita::class);
+        parent::__construct($registry, Profesionales::class);
     }
 
-    // /**
-    //  * @return Visita[] Returns an array of Visita objects
-    //  */
+     /**
+      * @return Profesionales[] Returns an array of Profesionales objects
+      */
     /*
     public function findByExampleField($value)
     {
@@ -36,15 +36,15 @@ class VisitaRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Visita
+    
+    public function findOneByDniField($value): ?Profesionales
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
+            ->andWhere('v.dni = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
         ;
     }
-    */
+    
 }

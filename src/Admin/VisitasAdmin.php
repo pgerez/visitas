@@ -12,23 +12,47 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 final class VisitasAdmin extends AbstractAdmin
 {
-    
-    public function  configure(){
-        $this->parentAssociationMapping = 'ordenprestacions';
-    }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
             ->add('id')
+            ->add('estado_excel')
+            ->add('fecha_inicio')
+            ->add('fecha_fin')
+            ->add('duracion')
+            ->add('celular')
+            ->add('afiliacion')
+            ->add('profesional_dni')
+            ->add('profesional_servicio')
+            ->add('profesional_email')
+            ->add('razon_social')
+            ->add('sap')
+            ->add('ugl')
+            ->add('numero_visita')
+            ->add('observacion')
             ;
     }
 
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper
-            ->add('profesionaleEquipoTrabajos.profesionales')
+            ->add('id')
+            ->add('estado')
+            ->add('fecha_inicio')
+            ->add('fecha_fin')
+            ->add('duracion')
+            ->add('celular')
+            ->add('afiliacion')
+            ->add('profesional')
+            ->add('profesional_dni')
+            #->add('profesional_servicio')
+            ->add('profesional_email')
+            ->add('razon_social')
+            ->add('sap')
+            ->add('ugl')
             ->add('numero_visita')
+            ->add('observacion')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -43,6 +67,20 @@ final class VisitasAdmin extends AbstractAdmin
         $formMapper
             #->add('id')
             ->add('numero_visita')
+            ->add('estado_excel')
+            ->add('estado')
+            ->add('fecha_inicio')
+            ->add('fecha_fin')
+            ->add('duracion')
+            ->add('celular')
+            ->add('afiliacion')
+            ->add('profesional_dni')
+            ->add('profesional')
+            ->add('profesional_servicio')
+            ->add('profesional_email')
+            ->add('razon_social')
+            ->add('sap')
+            ->add('ugl')
             ->add('observacion')
             ;
     }
@@ -51,6 +89,20 @@ final class VisitasAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
+            ->add('estado_excel')
+            ->add('fecha_inicio')
+            ->add('fecha_fin')
+            ->add('duracion')
+            ->add('celular')
+            ->add('afiliacion')
+            ->add('profesional_dni')
+            ->add('profesional_servicio')
+            ->add('profesional_email')
+            ->add('razon_social')
+            ->add('sap')
+            ->add('ugl')
+            ->add('numero_visita')
+            ->add('observacion')
             ;
     }
 }

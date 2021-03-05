@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\App\Entity\Visitas;
+use App\Entity\Visitas;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,9 +19,9 @@ class VisitasRepository extends ServiceEntityRepository
         parent::__construct($registry, Visitas::class);
     }
 
-    // /**
-    //  * @return Visitas[] Returns an array of Visitas objects
-    //  */
+     /**
+    /  * @return Visitas[] Returns an array of Visitas objects
+    /  */
     /*
     public function findByExampleField($value)
     {
@@ -36,15 +36,16 @@ class VisitasRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Visitas
+    
+    public function findOneByNumeroVisitaField($value): ?Visitas
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
+            ->andWhere('v.numero_visita = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
+            
         ;
     }
-    */
+    
 }

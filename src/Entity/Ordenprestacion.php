@@ -108,6 +108,11 @@ class Ordenprestacion
      *
      */
     private $equipos;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Modulo::class, inversedBy="ordenprestacions")
+     */
+    private $modulo;
     
     public function __toString() 
     {
@@ -270,6 +275,18 @@ class Ordenprestacion
                 $equipo->setOrdenprestacion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getModulo(): ?Modulo
+    {
+        return $this->modulo;
+    }
+
+    public function setModulo(?Modulo $modulo): self
+    {
+        $this->modulo = $modulo;
 
         return $this;
     }

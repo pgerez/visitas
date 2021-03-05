@@ -127,3 +127,24 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Diagnosticos }
         public: true
+
+    admin.estado:
+        class: App\Admin\EstadoAdmin
+        arguments: [~, App\Entity\Estado, App\Controller\EstadoAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Estado }
+        public: true
+
+    admin.modulo:
+        class: App\Admin\ModuloAdmin
+        arguments: [~, App\Entity\Modulo, App\Controller\ModuloAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Modulo }
+        public: true
+
+    admin.transmision:
+        class: App\Admin\TransmisionAdmin
+        arguments: [~, App\Entity\Transmision, App\Controller\TransmisionAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Transmision }
+        public: true

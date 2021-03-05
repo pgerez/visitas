@@ -63,8 +63,11 @@ final class OrdenprestacionAdmin extends AbstractAdmin
             #->add('id')
             ->with('Orden de Prestacion')    
                 ->add('numero')
+                ->add('modulo', ModelListType::class, array(
+                    'by_reference' => false,'btn_edit' => false,'btn_delete' => false,'btn_add' => false
+                ))
                 ->add('afiliadoid', ModelListType::class, array(
-                    'by_reference' => false,'btn_edit' => false,'btn_delete' => false,'btn_add' => false, 'btn_list' => false
+                    'by_reference' => false,'btn_edit' => false,'btn_delete' => false,'btn_add' => false
                 ))
                 ->add('vigenciadesde', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
                 ->add('vigenciahasta', DatePickerType::class, Array('label'=>'Hasta', 'format'=>'d/M/y'))

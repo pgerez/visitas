@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProfesionalesRepository;
 
 /**
  * Profesionales
  *
  * @ORM\Table(name="profesionales", indexes={@ORM\Index(name="FK_profesionales_1", columns={"profesionId"}), @ORM\Index(name="FK_profesionales_2", columns={"sucursalId"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ProfesionalesRepository::class)
  */
 class Profesionales
 {
@@ -110,6 +113,16 @@ class Profesionales
      * })
      */
     private $sucursalid;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Visitas::class, mappedBy="profesional")
+     */
+    private $visitas;
+
+    public function __construct()
+    {
+        $this->visitas = new ArrayCollection();
+    }
 
     
     public function __toString() 
@@ -262,6 +275,36 @@ class Profesionales
     public function setSucursalid(?Sucursales $sucursalid): self
     {
         $this->sucursalid = $sucursalid;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Visitas[]
+     */
+    public function getVisitas(): Collection
+    {
+        return $this->visitas;
+    }
+
+    public function addVisita(Visitas $visita): self
+    {
+        if (!$this->visitas->contains($visita)) {
+            $this->visitas[] = $visita;
+            $visita->setProfesional($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVisita(Visitas $visita): self
+    {
+        if ($this->visitas->removeElement($visita)) {
+            // set the owning side to null (unless already changed)
+            if ($visita->getProfesional() === $this) {
+                $visita->setProfesional(null);
+            }
+        }
 
         return $this;
     }
