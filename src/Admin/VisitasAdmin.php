@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 
 final class VisitasAdmin extends AbstractAdmin
 {
@@ -82,6 +83,9 @@ final class VisitasAdmin extends AbstractAdmin
             ->add('sap')
             ->add('ugl')
             ->add('observacion')
+            ->add('profesionaleEquipoTrabajos', ModelListType::class, array(
+                    'by_reference' => false
+                ))
             ;
     }
 

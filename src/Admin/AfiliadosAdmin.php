@@ -77,7 +77,7 @@ final class AfiliadosAdmin extends AbstractAdmin
         $formMapper
             ->with('Datos Personales')
                 ->add('nroafiliado')
-                #->add('tipodocumentoid')
+                ->add('tipodocumentoid')
                 ->add('nrodocumento')
                 #->add('observaciones')
                 ->add('apellido')
@@ -105,7 +105,7 @@ final class AfiliadosAdmin extends AbstractAdmin
                           ]
                 )
             ->end()
-            #->add('fechamodificacion', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
+            ->add('fechamodificacion', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
             #->add('fechabaja', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
             #->add('estadoid')
             

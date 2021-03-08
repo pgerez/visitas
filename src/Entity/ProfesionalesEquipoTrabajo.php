@@ -65,7 +65,7 @@ class ProfesionalesEquipoTrabajo
     private $transmision;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Montos::class, inversedBy="profesionalesEquipoTrabajos")
+     * @ORM\ManyToOne(targetEntity=Montos::class, inversedBy="profesionalesEquipoTrabajos", cascade={"persist"})
      */
     private $monto;
 

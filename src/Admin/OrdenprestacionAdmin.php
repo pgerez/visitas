@@ -67,7 +67,7 @@ final class OrdenprestacionAdmin extends AbstractAdmin
                     'by_reference' => false,'btn_edit' => false,'btn_delete' => false,'btn_add' => false
                 ))
                 ->add('afiliadoid', ModelListType::class, array(
-                    'by_reference' => false,'btn_edit' => false,'btn_delete' => false,'btn_add' => false
+                    'by_reference' => false
                 ))
                 ->add('vigenciadesde', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
                 ->add('vigenciahasta', DatePickerType::class, Array('label'=>'Hasta', 'format'=>'d/M/y'))
@@ -142,6 +142,7 @@ final class OrdenprestacionAdmin extends AbstractAdmin
         $profesionalesequipotrabajoManager = $this->getModelManager()
                 ->getEntityManager('App\Entity\ProfesionalesEquipoTrabajo');
         $equipo = new \App\Entity\EquipoTrabajo();
+        $monto = new \App\Entity\Montos();
         $equipo->setOrdenprestacion($object);
         $equipotrabajoManager->persist($equipo);
         $equipotrabajoManager->flush();
@@ -151,6 +152,7 @@ final class OrdenprestacionAdmin extends AbstractAdmin
             $profesionalesequipotrabajo = new \App\Entity\ProfesionalesEquipoTrabajo();
             $profesionalesequipotrabajo->setEquipoTrabajos($equipo);
             $profesionalesequipotrabajo->setTransmision($transmision);
+            $profesionalesequipotrabajo->setMonto(null);
             $profesionalesequipotrabajoManager->persist($profesionalesequipotrabajo);
             $profesionalesequipotrabajoManager->flush();
             

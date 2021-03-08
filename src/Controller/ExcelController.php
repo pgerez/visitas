@@ -94,7 +94,13 @@ class ExcelController extends Controller
                 $entityManager->flush();
                 
                 ### vincular con equipo de trabajo y op#########
-                $pet->findByVisita($visita->getFechaInicio(), $visita->getFechaFin(), $visita->getAfiliacion(), $visita->getProfesionalDni());
+                $profEqTr = $pet->findByVisita($visita->getFechaInicio(), $visita->getFechaFin(), $visita->getAfiliacion(), $visita->getProfesionalDni());
+
+                if($profEqTr != null):
+                        $visita->setProfesionaleEquipoTrabajos($pet);
+                        $entityManager->persist($visita);
+                        $entityManager->flush();
+                endif;
                 
                 ###############################################
             endif;
