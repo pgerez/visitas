@@ -5,12 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProfesionalesEquipoTrabajoRepository;
 
 /**
  * ProfesionalesEquipoTrabajo
  *
  * @ORM\Table(name="profesionales_equipo_trabajo", indexes={@ORM\Index(name="fk_profesionale_equipo_trabajo_equipo_trabajo1_idx", columns={"equipo_trabajos"}), @ORM\Index(name="fk_profesionale_equipo_trabajo_profesionales1_idx", columns={"profesionales"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ProfesionalesEquipoTrabajoRepository::class)
  */
 class ProfesionalesEquipoTrabajo
 {
@@ -63,8 +64,18 @@ class ProfesionalesEquipoTrabajo
      */
     private $transmision;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Montos::class, inversedBy="profesionalesEquipoTrabajos")
+     */
+    private $monto;
 
 
+    public function __construct()
+    {
+        $this->monto = new ArrayCollection();
+    }
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -129,6 +140,19 @@ class ProfesionalesEquipoTrabajo
 
         return $this;
     }
+
+    public function getMonto(): ?Montos
+    {
+        return $this->monto;
+    }
+
+    public function setMonto(?Montos $monto): self
+    {
+        $this->monto = $monto;
+
+        return $this;
+    }
+
 
 
 }

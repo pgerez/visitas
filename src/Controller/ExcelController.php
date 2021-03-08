@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Visitas;
 use App\Entity\Profesionales;
 use App\Entity\Estado;
+use App\Entity\ProfesionalesEquipoTrabajo;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,13 +46,15 @@ class ExcelController extends Controller
         unset($sheetData[1]);
         #var_dump($sheetData);exit;
         $entityManager = $this->getDoctrine()->getManager();
+        
         $profesional = $this->getDoctrine()
                         ->getRepository(Profesionales::class);
         $estado = $this->getDoctrine()
                         ->getRepository(Estado::class);
         $visitaR = $this->getDoctrine()
                         ->getRepository(Visitas::class);
-        
+        $pet = $this->getDoctrine()
+                        ->getRepository(ProfesionalesEquipoTrabajo::class);
         foreach ($sheetData as $data):
             if($visitaR->findOneByNumeroVisitaField($data['A']) == null):
                 $visita = new Visitas();
@@ -89,6 +92,11 @@ class ExcelController extends Controller
                 $visita->setUgl($data['Y']);
                 $entityManager->persist($visita);
                 $entityManager->flush();
+                
+                ### vincular con equipo de trabajo y op#########
+                $pet->findByVisita($visita->getFechaInicio(), $visita->getFechaFin(), $visita->getAfiliacion(), $visita->getProfesionalDni());
+                
+                ###############################################
             endif;
         endforeach;
         

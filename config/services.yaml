@@ -148,3 +148,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Transmision }
         public: true
+
+    admin.montos:
+        class: App\Admin\MontosAdmin
+        arguments: [~, App\Entity\Montos, App\Controller\MontosAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Montos }
+        public: true

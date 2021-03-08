@@ -9,18 +9,20 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\AdminBundle\Form\Type\ModelListType;
-use Sonata\Form\Type\CollectionType;
+use Sonata\Form\Type\DatePickerType;
 
-final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
+final class MontosAdmin extends AbstractAdmin
 {
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
             ->add('id')
-            ->add('cantidad')
-            ->add('observaciones')
+            ->add('descripcion')
+            ->add('valor')
+            ->add('estado')
+            ->add('fecha_desde')
+            ->add('fecha_hasta')
             ;
     }
 
@@ -28,8 +30,11 @@ final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('cantidad')
-            ->add('observaciones')
+            ->add('descripcion')
+            ->add('valor')
+            ->add('estado')
+            ->add('fecha_desde')
+            ->add('fecha_hasta')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
@@ -43,15 +48,11 @@ final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
     {
         $formMapper
             #->add('id')
-            ->add('transmision',  ModelListType::class, array(
-                'by_reference' => false, 'btn_edit' => false,'btn_delete' => false,'btn_add' => false
-            ))
-            ->add('profesionales',  ModelListType::class, array(
-                'by_reference' => false, 'btn_edit' => false,'btn_delete' => false,'btn_add' => false
-            ))
-            ->add('monto')
-            ->add('cantidad', null, ['label' => 'Cantidad de visitas'])
-            #->add('observaciones')
+            ->add('descripcion')
+            ->add('valor')
+            ->add('estado')
+            ->add('fecha_desde', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
+            ->add('fecha_hasta', DatePickerType::class, Array('label'=>'Hasta', 'format'=>'d/M/y'))
             ;
     }
 
@@ -59,10 +60,11 @@ final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('cantidad')
-            ->add('observaciones')
+            ->add('descripcion')
+            ->add('valor')
+            ->add('estado')
+            ->add('fecha_desde')
+            ->add('fecha_hasta')
             ;
     }
-    
-     
 }
