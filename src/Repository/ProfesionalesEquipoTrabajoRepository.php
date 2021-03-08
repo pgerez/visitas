@@ -25,7 +25,7 @@ class ProfesionalesEquipoTrabajoRepository extends ServiceEntityRepository
     
     public function findByVisita($fi,$ff,$numafiliado,$dniprofesional)
     {
-        echo $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('p')
             ->join('p.equipoTrabajos', 'et')
             ->join('et.ordenprestacion','op')
             ->join('op.afiliadoid','afi')
