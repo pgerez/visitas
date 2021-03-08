@@ -42,9 +42,9 @@ class ProfesionalesEquipoTrabajoRepository extends ServiceEntityRepository
             #->setMaxResults(10)
             ->getQuery()
             #->getDQL()    
-            ->getSQL()
-            #->getResult()exit
-            ;exit;
+            #->getSQL()
+            ->getResult()
+            #;exit;
         ;
     }
     
