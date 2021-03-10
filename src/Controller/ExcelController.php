@@ -62,18 +62,18 @@ class ExcelController extends Controller
                 $visita->setEstadoExcel($data['B']);
                 $visita->setEstado($estado->findOneByDescripcionField($data['B']));
 
-                ####convert string in datetime fecha_inicio####
+                ####convert string to datetime fecha_inicio####
                 $datetimefi = \DateTime::createFromFormat('d/m/y H:i', $data['D']);
                 #var_dump($datetimefi);exit;
                 #$fi = new \DateTime(strtotime($datetimefi));
                 $visita->setFechaInicio($datetimefi);
-                ####convert string in datetime fecha_fin####
+                ####convert string to datetime fecha_fin####
                 if($data['E'] != null):
                     $datetimeff = \DateTime::createFromFormat('d/m/y H:i',  $data['E']);
                     #$ff = new \DateTime(strtotime($datetimeff));
                     $visita->setFechaFin($datetimeff);
                 endif;
-                ####convert string tu time duracion####
+                ####convert string to time duracion####
                 if($data['F'] != null):
                     $timedu = \DateTime::createFromFormat('H:i:s', $data['F']);
                     $visita->setDuracion($timedu);
@@ -94,12 +94,15 @@ class ExcelController extends Controller
                 $entityManager->flush();
                 
                 ### vincular con equipo de trabajo y op#########
-                $profEqTr = $pet->findByVisita($visita->getFechaInicio(), $visita->getFechaFin(), $visita->getAfiliacion(), $visita->getProfesionalDni());
-
-                if($profEqTr != null):
-                        $visita->setProfesionaleEquipoTrabajos($pet);
-                        $entityManager->persist($visita);
-                        $entityManager->flush();
+                
+                if($data['E'] != null):
+                    $profEqTr = $pet->findByVisita($visita->getFechaInicio()->format('Y-m-d H:i:s'), $visita->getFechaFin()->format('Y-m-d H:i:s'), $visita->getAfiliacion(), $visita->getProfesionalDni());
+                    if($profEqTr != null):
+                            $visita->setProfesionaleEquipoTrabajos($profEqTr);
+                            $visita->setOrdenprestacions($profEqTr->getEquipoTrabajos()->getOrdenprestacion());
+                            $entityManager->persist($visita);
+                            $entityManager->flush();
+                    endif;
                 endif;
                 
                 ###############################################

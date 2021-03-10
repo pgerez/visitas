@@ -69,12 +69,27 @@ class ProfesionalesEquipoTrabajo
      */
     private $monto;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Visitas::class, mappedBy="profesionalesEquipoTrabajo")
+     */
+    private $visitas;
+    
+    
+    
+    public function __toString() {
+        return (string) $this->getId();
+    }
 
     public function __construct()
     {
         $this->monto = new ArrayCollection();
+        $this->visitas = new ArrayCollection();
     }
 
+    public function getRealizadas(): ?int
+    {
+        return $this->getVisitas()->count();
+    }   
     
     public function getId(): ?int
     {
@@ -152,6 +167,37 @@ class ProfesionalesEquipoTrabajo
 
         return $this;
     }
+
+    /**
+     * @return Collection|Visitas[]
+     */
+    public function getVisitas(): Collection
+    {
+        return $this->visitas;
+    }
+
+    public function addVisita(Visitas $visita): self
+    {
+        if (!$this->visitas->contains($visita)) {
+            $this->visitas[] = $visita;
+            $visita->setProfesionalesEquipoTrabajo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVisita(Visitas $visita): self
+    {
+        if ($this->visitas->removeElement($visita)) {
+            // set the owning side to null (unless already changed)
+            if ($visita->getProfesionalesEquipoTrabajo() === $this) {
+                $visita->setProfesionalesEquipoTrabajo(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 
 

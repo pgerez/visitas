@@ -137,6 +137,11 @@ class Visitas
      */
     private $profesional;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ProfesionalesEquipoTrabajo::class, inversedBy="visitas")
+     */
+    private $profesionalesEquipoTrabajo;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -390,6 +395,18 @@ class Visitas
     public function setProfesionalMatricula(?int $profesional_matricula): self
     {
         $this->profesional_matricula = $profesional_matricula;
+
+        return $this;
+    }
+
+    public function getProfesionalesEquipoTrabajo(): ?ProfesionalesEquipoTrabajo
+    {
+        return $this->profesionalesEquipoTrabajo;
+    }
+
+    public function setProfesionalesEquipoTrabajo(?ProfesionalesEquipoTrabajo $profesionalesEquipoTrabajo): self
+    {
+        $this->profesionalesEquipoTrabajo = $profesionalesEquipoTrabajo;
 
         return $this;
     }

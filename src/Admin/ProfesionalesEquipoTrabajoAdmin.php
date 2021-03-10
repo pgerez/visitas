@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\Form\Type\CollectionType;
 
+
 final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
 {
 
@@ -51,7 +52,7 @@ final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
             ))
             ->add('monto')
             ->add('cantidad', null, ['label' => 'Cantidad de visitas'])
-            #->add('observaciones')
+            #->add('realizadas', null, ['mapped' => false, 'required'=>false])
             ;
     }
 

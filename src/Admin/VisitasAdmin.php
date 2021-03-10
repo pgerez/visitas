@@ -14,6 +14,10 @@ use Sonata\AdminBundle\Form\Type\ModelListType;
 final class VisitasAdmin extends AbstractAdmin
 {
 
+    public function  configure(){
+        $this->parentAssociationMapping = 'ordenprestacions';
+    }
+    
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
@@ -53,7 +57,8 @@ final class VisitasAdmin extends AbstractAdmin
             ->add('sap')
             ->add('ugl')
             ->add('numero_visita')
-            ->add('observacion')
+            ->add('profesionaleEquipoTrabajos')
+            ->add('ordenprestacions')
             ->add('_action', null, [
                 'actions' => [
                     'show' => [],
