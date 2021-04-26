@@ -90,6 +90,7 @@ class ExcelController extends Controller
                 $visita->setRazonSocial($data['T']);
                 $visita->setSap($data['X']);
                 $visita->setUgl($data['Y']);
+                $visita->setEstadoEnvio(0);
                 $entityManager->persist($visita);
                 $entityManager->flush();
                 
@@ -98,7 +99,8 @@ class ExcelController extends Controller
                 if($data['E'] != null):
                     $profEqTr = $pet->findByVisita($visita->getFechaInicio()->format('Y-m-d H:i:s'), $visita->getFechaFin()->format('Y-m-d H:i:s'), $visita->getAfiliacion(), $visita->getProfesionalDni());
                     if($profEqTr != null):
-                            $visita->setProfesionaleEquipoTrabajos($profEqTr);
+                            $visita->setProfesionalesEquipoTrabajo($profEqTr);
+                            $visita->setValor($profEqTr->getMonto()->getValor());
                             $visita->setOrdenprestacions($profEqTr->getEquipoTrabajos()->getOrdenprestacion());
                             $entityManager->persist($visita);
                             $entityManager->flush();
@@ -111,8 +113,10 @@ class ExcelController extends Controller
         
         // Return a text response to the browser saying that the excel was succesfully created
         #return new Response("Excel generated succesfully");
-        $this->addFlash('sonata_flash_success', 'Se cargo exitosamente el archivo excel');
-        return $this->redirectToRoute('admin_app_ordenprestacion_list');
+        $this->addFlash('sonata_flash_success', 'Se cargo exitosamente el archivo: '.$inputFileName->getClientOriginalName());
+
+
+        return $this->redirectToRoute('excel');
     }
     
     

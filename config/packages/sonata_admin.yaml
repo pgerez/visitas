@@ -1,17 +1,19 @@
 # config/packages/sonata_admin.yaml
 
 sonata_admin:
-    title: Visitas MPF 
+    title: Prestaciones
     templates:
         layout: 'standard_layout.html.twig'
+        #knp_menu_template: '@ApplicationAdmin/Menu/custom_knp_menu.html.twig'
     dashboard:
        groups:
             admin:
-                label: 'Contable'
+                label: 'Servicios'
                 icon: '<i class="fa fa-usd"></i>'
                 items:  
                     - admin.ordenprestacion                      
-                    - admin.visitas                      
+                    - admin.visitas
+                    - admin.envios                      
             admin1:
                 label: 'Configuracion'
                 icon: '<i class="fa fa-cogs"></i>'
@@ -22,9 +24,9 @@ sonata_admin:
                     - admin.diagnosticos
                     - admin.modulo
                     - admin.montos
-                    #- excel
-                roles: [ROLE_ADMIN_CONFIG]    
-                    
+                    - route: 'excel'
+                      label: 'Excel'
+                roles: [ROLE_ADMIN_CONFIG]
             admin2:
                 label: 'Gestion de Usuarios'
                 icon: '<i class="fa fa-user"></i>'

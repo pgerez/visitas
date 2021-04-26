@@ -46,7 +46,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
+    
     admin.afiliados:
         class: App\Admin\AfiliadosAdmin
         arguments: [~, App\Entity\Afiliados, App\Controller\AfiliadosAdminController]
@@ -155,3 +155,19 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: admin, label: Montos }
         public: true
+
+    admin.cumplimiento:
+        class: App\Admin\CumplimientoAdmin
+        arguments: [~, App\Entity\Cumplimiento, App\Controller\CumplimientoAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Cumplimiento }
+        public: true
+
+    admin.envios:
+        class: App\Admin\EnviosAdmin
+        arguments: [~, App\Entity\Envios, App\Controller\EnviosAdminController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Envios }
+        public: true
+        calls:
+            - [ addChild, ["@admin.visitas"]]

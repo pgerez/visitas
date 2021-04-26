@@ -39,6 +39,11 @@ class Transmision
      */
     private $profesionalesEquipoTrabajos;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Cumplimiento::class, inversedBy="transmisions")
+     */
+    private $cumplimiento;
+
 
     public function __toString() 
     {
@@ -120,6 +125,18 @@ class Transmision
                 $profesionalesEquipoTrabajo->setTransmision(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCumplimiento(): ?Cumplimiento
+    {
+        return $this->cumplimiento;
+    }
+
+    public function setCumplimiento(?Cumplimiento $cumplimiento): self
+    {
+        $this->cumplimiento = $cumplimiento;
 
         return $this;
     }

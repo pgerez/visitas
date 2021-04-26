@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * Ordenprestacion
@@ -45,16 +47,23 @@ class Ordenprestacion
     private $vigenciahasta;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="internacion", type="datetime", nullable=true)
+     */
+    private $internacion;
+
+    /**
      * @var string|null
      *
-     * @ORM\Column(name="observaciones", type="string", length=1000, nullable=true)
+     * @ORM\Column(name="observaciones", type="text", nullable=true)
      */
     private $observaciones;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="estado", type="string", length=2, nullable=false)
+     * @ORM\Column(name="estado", type="string", length=2, nullable=true)
      */
     private $estado;
 
@@ -65,12 +74,6 @@ class Ordenprestacion
      */
     private $documento;
 
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="visitaId", type="integer", nullable=true)
-     */
-    private $visitaid;
 
     /**
      * @var \Afiliados
@@ -114,6 +117,27 @@ class Ordenprestacion
      */
     private $modulo;
     
+    /**
+     * @ORM\OneToMany(targetEntity=Visitas::class, mappedBy="ordenprestacions", cascade={"all"}, orphanRemoval=true)
+     */
+    private $visitas;
+    
+    
+    /**
+     * @Assert\Callback
+     */
+    public static function validate($object,ExecutionContextInterface $context, $payload)
+    {
+        #$context->setNode($context->getValue(), $context->getObject(), $context->getMetadata(), 'ordenprestacion');
+        if($object->getInternacion() <> null):
+            if (!($object->getInternacion() >= $object->getVigenciadesde() and $object->getInternacion() <= $object->getVigenciahasta())):
+                $context->buildViolation('La fecha de internacion debe estar comprendida entre la fecha deste y hasta de la OP')
+                        ->atPath('internacion')
+                        ->addViolation();
+            endif;
+        endif;
+    }   
+
     public function __toString() 
     {
         return (string) $this->getNumero();
@@ -122,7 +146,27 @@ class Ordenprestacion
     public function __construct()
     {
         $this->equipos = new ArrayCollection();
+        $this->visitas = new ArrayCollection();
+        
     }
+
+    public function getCantidadVisitas()
+    {
+        $count = 0;
+        foreach ($this->getEquipos() as $equipo ):
+            foreach ($equipo->getProfesionalesequipotrabajos() as $pet):
+                $count += $pet->getCantidad();
+            endforeach;
+        endforeach;
+        return $count;
+        
+    }
+    
+    public function getRealizadas() 
+    {
+        return $this->getVisitas()->count();
+    }
+
 
     public function getId(): ?int
     {
@@ -201,18 +245,6 @@ class Ordenprestacion
         return $this;
     }
 
-    public function getVisitaid(): ?int
-    {
-        return $this->visitaid;
-    }
-
-    public function setVisitaid(?int $visitaid): self
-    {
-        $this->visitaid = $visitaid;
-
-        return $this;
-    }
-
     public function getAfiliadoid(): ?Afiliados
     {
         return $this->afiliadoid;
@@ -287,6 +319,48 @@ class Ordenprestacion
     public function setModulo(?Modulo $modulo): self
     {
         $this->modulo = $modulo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Visitas[]
+     */
+    public function getVisitas(): Collection
+    {
+        return $this->visitas;
+    }
+
+    public function addVisita(Visitas $visita): self
+    {
+        if (!$this->visitas->contains($visita)) {
+            $this->visitas[] = $visita;
+            $visita->setProfesionalesEquipoTrabajo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVisita(Visitas $visita): self
+    {
+        if ($this->visitas->removeElement($visita)) {
+            // set the owning side to null (unless already changed)
+            if ($visita->getProfesionalesEquipoTrabajo() === $this) {
+                $visita->setProfesionalesEquipoTrabajo(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getInternacion(): ?\DateTimeInterface
+    {
+        return $this->internacion;
+    }
+
+    public function setInternacion(?\DateTimeInterface $internacion): self
+    {
+        $this->internacion = $internacion;
 
         return $this;
     }

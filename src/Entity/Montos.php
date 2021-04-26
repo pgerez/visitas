@@ -43,21 +43,23 @@ class Montos
      * @ORM\Column(type="date", nullable=true)
      */
     private $fecha_hasta;
-
+    
     /**
      * @ORM\OneToMany(targetEntity=ProfesionalesEquipoTrabajo::class, mappedBy="monto")
      */
-    private $profesionalesEquipoTrabajos;
-    
+    private $profesionalesEquipoTrabajo;
+
+    public function __construct()
+    {
+        $this->profesionalesEquipoTrabajo = new ArrayCollection();
+    }
+
+ 
     
     public function __toString() {
         return (string) $this->getDescripcion().' - $'.$this->getValor();
     }
 
-    public function __construct()
-    {
-        $this->profesionalesEquipoTrabajos = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -127,15 +129,15 @@ class Montos
     /**
      * @return Collection|ProfesionalesEquipoTrabajo[]
      */
-    public function getProfesionalesEquipoTrabajos(): Collection
+    public function getProfesionalesEquipoTrabajo(): Collection
     {
-        return $this->profesionalesEquipoTrabajos;
+        return $this->profesionalesEquipoTrabajo;
     }
 
     public function addProfesionalesEquipoTrabajo(ProfesionalesEquipoTrabajo $profesionalesEquipoTrabajo): self
     {
-        if (!$this->profesionalesEquipoTrabajos->contains($profesionalesEquipoTrabajo)) {
-            $this->profesionalesEquipoTrabajos[] = $profesionalesEquipoTrabajo;
+        if (!$this->profesionalesEquipoTrabajo->contains($profesionalesEquipoTrabajo)) {
+            $this->profesionalesEquipoTrabajo[] = $profesionalesEquipoTrabajo;
             $profesionalesEquipoTrabajo->setMonto($this);
         }
 
@@ -144,7 +146,7 @@ class Montos
 
     public function removeProfesionalesEquipoTrabajo(ProfesionalesEquipoTrabajo $profesionalesEquipoTrabajo): self
     {
-        if ($this->profesionalesEquipoTrabajos->removeElement($profesionalesEquipoTrabajo)) {
+        if ($this->profesionalesEquipoTrabajo->removeElement($profesionalesEquipoTrabajo)) {
             // set the owning side to null (unless already changed)
             if ($profesionalesEquipoTrabajo->getMonto() === $this) {
                 $profesionalesEquipoTrabajo->setMonto(null);
@@ -153,4 +155,5 @@ class Montos
 
         return $this;
     }
+
 }

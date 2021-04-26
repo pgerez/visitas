@@ -20,21 +20,23 @@ class VisitasRepository extends ServiceEntityRepository
     }
 
      /**
-    /  * @return Visitas[] Returns an array of Visitas objects
-    /  */
-    /*
-    public function findByExampleField($value)
+      * @return Visitas[] Returns an array of Visitas objects
+      */
+    
+    public function findByFechas($fi,$ff)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('v.fecha_inicio >= :fi')
+            ->andWhere('v.fecha_fin <= :ff')
+            ->setParameter('fi', $fi)
+            ->setParameter('ff', $ff)
+            ->orderBy('v.afiliacion', 'ASC')
+            #->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     
     public function findOneByNumeroVisitaField($value): ?Visitas

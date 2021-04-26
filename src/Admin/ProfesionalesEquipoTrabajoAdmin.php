@@ -11,6 +11,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\Form\Type\CollectionType;
+use Sonata\Form\Type\DatePickerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
+use App\Entity\Montos;
 
 
 final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
@@ -45,13 +49,23 @@ final class ProfesionalesEquipoTrabajoAdmin extends AbstractAdmin
         $formMapper
             #->add('id')
             ->add('transmision',  ModelListType::class, array(
-                'by_reference' => false, 'btn_edit' => false,'btn_delete' => false,'btn_add' => false
+                'by_reference' => false, 'btn_edit' => false,'btn_delete' => false,'btn_add' => false, 'required' => true
             ))
             ->add('profesionales',  ModelListType::class, array(
                 'by_reference' => false, 'btn_edit' => false,'btn_delete' => false,'btn_add' => false
             ))
-            ->add('monto')
-            ->add('cantidad', null, ['label' => 'Cantidad de visitas'])
+            ->add('fechaInicio', DatePickerType::class, Array('label'=>'Desde', 'format'=>'d/M/y'))
+            #->add('fechaFin', DatePickerType::class, Array('label'=>'Hasta', 'format'=>'d/M/y'))
+            ->add('monto', EntityType::class, array(
+                        'class' => Montos::class,
+                        #'query_builder' => $queryfactura,
+                        'multiple' => false,
+                        'expanded' => false,
+                        'label' => 'Monto',
+                        'placeholder' => 'Sin Seleccion',
+                        'by_reference' => true,
+                    ))
+            #->add('cantidad', null, ['label' => 'Cantidad de visitas'])
             #->add('realizadas', null, ['mapped' => false, 'required'=>false])
             ;
     }

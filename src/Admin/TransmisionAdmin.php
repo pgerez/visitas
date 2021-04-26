@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 
 final class TransmisionAdmin extends AbstractAdmin
 {
@@ -43,6 +44,9 @@ final class TransmisionAdmin extends AbstractAdmin
             #->add('id')
             ->add('codigo')
             ->add('descripcion')
+            ->add('cumplimiento',  ModelListType::class, array(
+                'by_reference' => false, 'btn_edit' => false,'btn_delete' => false,'btn_add' => false
+            ))
             ;
     }
 

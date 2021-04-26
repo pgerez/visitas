@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Visitas
  *
- * @ORM\Table(name="visitas", indexes={@ORM\Index(name="fk_visitas_ordenprestacion1_idx", columns={"ordenprestacions"}), @ORM\Index(name="fk_visitas_profesionale_equipo_trabajo1_idx", columns={"profesionale_equipo_trabajos"})})
+ * @ORM\Table(name="visitas", indexes={@ORM\Index(name="fk_visitas_ordenprestacion1_idx", columns={"ordenprestacions"})})
  * @ORM\Entity(repositoryClass=VisitasRepository::class)
  */
 class Visitas
@@ -98,6 +98,11 @@ class Visitas
     private $ugl;
 
     /**
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
+     */
+    private $valor;
+    
+    /**
      * @var \Ordenprestacion
      *
      * @ORM\ManyToOne(targetEntity="Ordenprestacion")
@@ -106,16 +111,6 @@ class Visitas
      * })
      */
     private $ordenprestacions;
-
-    /**
-     * @var \ProfesionalesEquipoTrabajo
-     *
-     * @ORM\ManyToOne(targetEntity="ProfesionalesEquipoTrabajo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="profesionale_equipo_trabajos", referencedColumnName="id")
-     * })
-     */
-    private $profesionaleEquipoTrabajos;
 
     /**
      * @ORM\Column(type="integer")
@@ -141,6 +136,18 @@ class Visitas
      * @ORM\ManyToOne(targetEntity=ProfesionalesEquipoTrabajo::class, inversedBy="visitas")
      */
     private $profesionalesEquipoTrabajo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Envios::class, inversedBy="visitas")
+     */
+    private $envio;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $estado_envio;
+
+    
 
     public function getId(): ?int
     {
@@ -327,18 +334,6 @@ class Visitas
         return $this;
     }
 
-    public function getProfesionaleEquipoTrabajos(): ?ProfesionalesEquipoTrabajo
-    {
-        return $this->profesionaleEquipoTrabajos;
-    }
-
-    public function setProfesionaleEquipoTrabajos(?ProfesionalesEquipoTrabajo $profesionaleEquipoTrabajos): self
-    {
-        $this->profesionaleEquipoTrabajos = $profesionaleEquipoTrabajos;
-
-        return $this;
-    }
-
     public function getEstado(): ?Estado
     {
         return $this->estado;
@@ -411,6 +406,41 @@ class Visitas
         return $this;
     }
 
+    public function getValor(): ?string
+    {
+        return $this->valor;
+    }
+
+    public function setValor(string $valor): self
+    {
+        $this->valor = $valor;
+
+        return $this;
+    }
+
+    public function getEnvio(): ?Envios
+    {
+        return $this->envio;
+    }
+
+    public function setEnvio(?Envios $envio): self
+    {
+        $this->envio = $envio;
+
+        return $this;
+    }
+
+    public function getEstadoEnvio(): ?int
+    {
+        return $this->estado_envio;
+    }
+
+    public function setEstadoEnvio(int $estado_envio): self
+    {
+        $this->estado_envio = $estado_envio;
+
+        return $this;
+    }
 
     
 }

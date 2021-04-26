@@ -30,6 +30,16 @@ class ProfesionalesEquipoTrabajo
      * @ORM\Column(name="cantidad", type="integer", nullable=true)
      */
     private $cantidad;
+    
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $fecha_inicio;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $fecha_fin;
 
     /**
      * @var string|null
@@ -65,14 +75,20 @@ class ProfesionalesEquipoTrabajo
     private $transmision;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Montos::class, inversedBy="profesionalesEquipoTrabajos", cascade={"persist"})
-     */
+     * @var \Montos
+     *
+     * @ORM\ManyToOne(targetEntity="Montos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="monto", referencedColumnName="id")
+     * })
+     */ 
     private $monto;
 
     /**
      * @ORM\OneToMany(targetEntity=Visitas::class, mappedBy="profesionalesEquipoTrabajo")
      */
     private $visitas;
+
     
     
     
@@ -82,7 +98,6 @@ class ProfesionalesEquipoTrabajo
 
     public function __construct()
     {
-        $this->monto = new ArrayCollection();
         $this->visitas = new ArrayCollection();
     }
 
@@ -156,17 +171,6 @@ class ProfesionalesEquipoTrabajo
         return $this;
     }
 
-    public function getMonto(): ?Montos
-    {
-        return $this->monto;
-    }
-
-    public function setMonto(?Montos $monto): self
-    {
-        $this->monto = $monto;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Visitas[]
@@ -198,7 +202,41 @@ class ProfesionalesEquipoTrabajo
         return $this;
     }
 
+    public function getFechaInicio(): ?\DateTimeInterface
+    {
+        return $this->fecha_inicio;
+    }
 
+    public function setFechaInicio(?\DateTimeInterface $fecha_inicio): self
+    {
+        $this->fecha_inicio = $fecha_inicio;
+
+        return $this;
+    }
+
+    public function getFechaFin(): ?\DateTimeInterface
+    {
+        return $this->fecha_fin;
+    }
+
+    public function setFechaFin(?\DateTimeInterface $fecha_fin): self
+    {
+        $this->fecha_fin = $fecha_fin;
+
+        return $this;
+    }
+
+    public function getMonto(): ?Montos
+    {
+        return $this->monto;
+    }
+
+    public function setMonto(?Montos $monto): self
+    {
+        $this->monto = $monto;
+
+        return $this;
+    }
 
 
 }
