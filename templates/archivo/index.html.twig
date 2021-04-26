@@ -1,0 +1,11 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block sonata_admin_content %}
+
+          {% block notice %}
+            {% include ['@SonataCore/FlashMessage/render.html.twig', '@SonataTwig/FlashMessage/render.html.twig'] %}
+          {% endblock notice %}
+        <h3>Generar Archivo Excel</h3>
+            {{ form(form) }}
+
+{% endblock %}

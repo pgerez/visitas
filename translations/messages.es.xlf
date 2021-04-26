@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="uvZxMkh" resname="Update">
+        <source>Update</source>
+        <target>Actualizar</target>
+      </trans-unit>
+      <trans-unit id="EhVukhv" resname="Id">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="Muuc9ym" resname="Nroafiliado">
+        <source>Nroafiliado</source>
+        <target>Nroafiliado</target>
+      </trans-unit>
+      <trans-unit id="dI3jg5d" resname="Tipodocumentoid">
+        <source>Tipodocumentoid</source>
+        <target>Tipodocumentoid</target>
+      </trans-unit>
+      <trans-unit id="dZS.GE9" resname="Nrodocumento">
+        <source>Nrodocumento</source>
+        <target>Nrodocumento</target>
+      </trans-unit>
+      <trans-unit id="jvYLbZT" resname="Observaciones">
+        <source>Observaciones</source>
+        <target>Observaciones</target>
+      </trans-unit>
+      <trans-unit id="SN8e3c_" resname="Apellido">
+        <source>Apellido</source>
+        <target>Apellido</target>
+      </trans-unit>
+      <trans-unit id="ViuxV1e" resname="Nombre">
+        <source>Nombre</source>
+        <target>Nombre</target>
+      </trans-unit>
+      <trans-unit id="gb3LEka" resname="Fechanacimiento">
+        <source>Fechanacimiento</source>
+        <target>Fecha de nacimiento</target>
+      </trans-unit>
+      <trans-unit id="6F4Ahse" resname="Telefono">
+        <source>Telefono</source>
+        <target>Telefono</target>
+      </trans-unit>
+      <trans-unit id=".zoaDFa" resname="Direccion">
+        <source>Direccion</source>
+        <target>Direccion</target>
+      </trans-unit>
+      <trans-unit id="fkmWoO2" resname="Fechainicio">
+        <source>Fechainicio</source>
+        <target>Fecha de inicio</target>
+      </trans-unit>
+      <trans-unit id=".OOz451" resname="Fechamodificacion">
+        <source>Fechamodificacion</source>
+        <target>Fecha de modificacion</target>
+      </trans-unit>
+      <trans-unit id="fYj1uLw" resname="Fechabaja">
+        <source>Fechabaja</source>
+        <target>Fecha de baja</target>
+      </trans-unit>
+      <trans-unit id="ZM.xMZ0" resname="Action">
+        <source>Action</source>
+        <target>Accion</target>
+      </trans-unit>
+      <trans-unit id="rT3j6ET" resname="Afiliados List">
+        <source>Afiliados List</source>
+        <target>Listado de Afiliados</target>
+      </trans-unit>
+      <trans-unit id=".6idD71" resname="Afiliados Create">
+        <source>Afiliados Create</source>
+        <target>Crear Afiliados</target>
+      </trans-unit>
+      <trans-unit id="n0PHfrl" resname="Sucursales">
+        <source>Sucursales</source>
+        <target>Sucursales</target>
+      </trans-unit>
+      <trans-unit id="xAYlrZz" resname="Descripcion">
+        <source>Descripcion</source>
+        <target>Descripcion</target>
+      </trans-unit>
+      <trans-unit id="6getIih" resname="Sucursales List">
+        <source>Sucursales List</source>
+        <target>Listado de Sucursales</target>
+      </trans-unit>
+      <trans-unit id="zBPZWZr" resname="Sucursales Create">
+        <source>Sucursales Create</source>
+        <target>Crear Sucursales</target>
+      </trans-unit>
+      <trans-unit id="WvNULhq" resname="Profesionales">
+        <source>Profesionales</source>
+        <target>Profesionales</target>
+      </trans-unit>
+      <trans-unit id="rE2YPZ8" resname="Dni">
+        <source>Dni</source>
+        <target>Dni</target>
+      </trans-unit>
+      <trans-unit id="tTJ9vYh" resname="Estadoid">
+        <source>Estadoid</source>
+        <target>Estadoid</target>
+      </trans-unit>
+      <trans-unit id="7WwufgT" resname="Curriculum">
+        <source>Curriculum</source>
+        <target>Curriculum</target>
+      </trans-unit>
+      <trans-unit id="UaN5OIT" resname="Profesionid">
+        <source>Profesionid</source>
+        <target>Profesionid</target>
+      </trans-unit>
+      <trans-unit id="j79j6Tx" resname="Profesionales List">
+        <source>Profesionales List</source>
+        <target>Listado de Profesionales</target>
+      </trans-unit>
+      <trans-unit id="F6tymcM" resname="Profesionales Create">
+        <source>Profesionales Create</source>
+        <target>Crear Profesionales</target>
+      </trans-unit>
+      <trans-unit id="0Ioo0mG" resname="ProfesionalesEquipoTrabajo">
+        <source>ProfesionalesEquipoTrabajo</source>
+        <target>Profesionales y Equipos Trabajos</target>
+      </trans-unit>
+      <trans-unit id="iTDgD8w" resname="Cantidad">
+        <source>Cantidad</source>
+        <target>Cantidad</target>
+      </trans-unit>
+      <trans-unit id="qLy1fhn" resname="Transmision">
+        <source>Transmision</source>
+        <target>Transmision</target>
+      </trans-unit>
+      <trans-unit id="itSEQUW" resname="Profesionales Equipo Trabajo List">
+        <source>Profesionales Equipo Trabajo List</source>
+        <target>Listado de Equipos de Trabajo</target>
+      </trans-unit>
+      <trans-unit id="diQgpsG" resname="Profesionales Equipo Trabajo Create">
+        <source>Profesionales Equipo Trabajo Create</source>
+        <target>Crear Profesionales Equipo Trabajo</target>
+      </trans-unit>
+      <trans-unit id="73Adbiz" resname="EquipoTrabajo">
+        <source>EquipoTrabajo</source>
+        <target>Equipos de Trabajo</target>
+      </trans-unit>
+      <trans-unit id="LAlH2Ro" resname="Equipo Trabajo List">
+        <source>Equipo Trabajo List</source>
+        <target>Listar Equipos de Trabajo</target>
+      </trans-unit>
+      <trans-unit id="uh2YQmU" resname="Equipo Trabajo Create">
+        <source>Equipo Trabajo Create</source>
+        <target>Crear Equipos de Trabajo</target>
+      </trans-unit>
+      <trans-unit id="Xb6klSP" resname="Ordenprestacion">
+        <source>Ordenprestacion</source>
+        <target>Ordenprestacion</target>
+      </trans-unit>
+      <trans-unit id="rRR4REH" resname="Numero">
+        <source>Numero</source>
+        <target>Numero</target>
+      </trans-unit>
+      <trans-unit id="qzMpRQk" resname="Vigenciadesde">
+        <source>Vigenciadesde</source>
+        <target>Desde</target>
+      </trans-unit>
+      <trans-unit id="17_TrJa" resname="Vigenciahasta">
+        <source>Vigenciahasta</source>
+        <target>Hasta</target>
+      </trans-unit>
+      <trans-unit id="DI3U3qc" resname="Equipos">
+        <source>Equipos</source>
+        <target>Equipos</target>
+      </trans-unit>
+      <trans-unit id="uVvlBb2" resname="Afiliadoid">
+        <source>Afiliadoid</source>
+        <target>Afiliado</target>
+      </trans-unit>
+      <trans-unit id="bJEukpf" resname="Realizadas">
+        <source>Realizadas</source>
+        <target>Realizadas</target>
+      </trans-unit>
+      <trans-unit id="mOWs3bb" resname="Estado">
+        <source>Estado</source>
+        <target>Estado</target>
+      </trans-unit>
+      <trans-unit id="z0J54A0" resname="Documento">
+        <source>Documento</source>
+        <target>Documento</target>
+      </trans-unit>
+      <trans-unit id="p64tJl3" resname="Modulo">
+        <source>Modulo</source>
+        <target>Modulo</target>
+      </trans-unit>
+      <trans-unit id="O7AaPZz" resname="Ordenprestacion List">
+        <source>Ordenprestacion List</source>
+        <target>Listado de Ordenprestacion</target>
+      </trans-unit>
+      <trans-unit id="wYrHpP4" resname="Ordenprestacion Create">
+        <source>Ordenprestacion Create</source>
+        <target>Crear Ordenprestacion</target>
+      </trans-unit>
+      <trans-unit id="xuJT.96" resname="Visitas">
+        <source>Visitas</source>
+        <target>Visitas</target>
+      </trans-unit>
+      <trans-unit id="nffX2hg" resname="Estado Excel">
+        <source>Estado Excel</source>
+        <target>Estado Excel</target>
+      </trans-unit>
+      <trans-unit id="L1jMefC" resname="Fecha Inicio">
+        <source>Fecha Inicio</source>
+        <target>Fecha Inicio</target>
+      </trans-unit>
+      <trans-unit id="lbfLqzB" resname="Fecha Fin">
+        <source>Fecha Fin</source>
+        <target>Fecha Fin</target>
+      </trans-unit>
+      <trans-unit id="vdP_FeH" resname="Duracion">
+        <source>Duracion</source>
+        <target>Duracion</target>
+      </trans-unit>
+      <trans-unit id="8lFtHyJ" resname="Celular">
+        <source>Celular</source>
+        <target>Celular</target>
+      </trans-unit>
+      <trans-unit id="7qgvbP6" resname="Afiliacion">
+        <source>Afiliacion</source>
+        <target>Afiliacion</target>
+      </trans-unit>
+      <trans-unit id="NLIa7Uj" resname="Profesional Dni">
+        <source>Profesional Dni</source>
+        <target>Profesional Dni</target>
+      </trans-unit>
+      <trans-unit id=".Nw_Z52" resname="Profesional Servicio">
+        <source>Profesional Servicio</source>
+        <target>Profesional Servicio</target>
+      </trans-unit>
+      <trans-unit id="_8wS8hH" resname="Profesional Email">
+        <source>Profesional Email</source>
+        <target>Profesional Email</target>
+      </trans-unit>
+      <trans-unit id="ms8hE4c" resname="Razon Social">
+        <source>Razon Social</source>
+        <target>Razon Social</target>
+      </trans-unit>
+      <trans-unit id="q6O_InN" resname="Sap">
+        <source>Sap</source>
+        <target>Sap</target>
+      </trans-unit>
+      <trans-unit id="xbmvpMe" resname="Ugl">
+        <source>Ugl</source>
+        <target>Ugl</target>
+      </trans-unit>
+      <trans-unit id="mGF2VNF" resname="Numero Visita">
+        <source>Numero Visita</source>
+        <target>Numero Visita</target>
+      </trans-unit>
+      <trans-unit id="GQVElPK" resname="Observacion">
+        <source>Observacion</source>
+        <target>Observacion</target>
+      </trans-unit>
+      <trans-unit id="sfRNCRc" resname="Profesional">
+        <source>Profesional</source>
+        <target>Profesional</target>
+      </trans-unit>
+      <trans-unit id="svUwxGm" resname="Valor">
+        <source>Valor</source>
+        <target>Valor</target>
+      </trans-unit>
+      <trans-unit id="lElStUs" resname="Profesionales Equipo Trabajo">
+        <source>Profesionales Equipo Trabajo</source>
+        <target>Profesionales Equipo Trabajo</target>
+      </trans-unit>
+      <trans-unit id="tVxfWUg" resname="Ordenprestacions">
+        <source>Ordenprestacions</source>
+        <target>Ordenprestacions</target>
+      </trans-unit>
+      <trans-unit id="qycjVdM" resname="Visitas List">
+        <source>Visitas List</source>
+        <target>Visitas List</target>
+      </trans-unit>
+      <trans-unit id="41PacAh" resname="Visitas Create">
+        <source>Visitas Create</source>
+        <target>Visitas Create</target>
+      </trans-unit>
+      <trans-unit id="MRn2hT5" resname="Afiliadosestados">
+        <source>Afiliadosestados</source>
+        <target>Afiliadosestados</target>
+      </trans-unit>
+      <trans-unit id="qPeFNRM" resname="Afiliadosestados List">
+        <source>Afiliadosestados List</source>
+        <target>Afiliadosestados List</target>
+      </trans-unit>
+      <trans-unit id="LcS0VVd" resname="Afiliadosestados Create">
+        <source>Afiliadosestados Create</source>
+        <target>Afiliadosestados Create</target>
+      </trans-unit>
+      <trans-unit id="sN_wwje" resname="Profesiones">
+        <source>Profesiones</source>
+        <target>Profesiones</target>
+      </trans-unit>
+      <trans-unit id="2QMQPXB" resname="Adicionalid">
+        <source>Adicionalid</source>
+        <target>Adicional</target>
+      </trans-unit>
+      <trans-unit id="H3JuXJD" resname="Profesiones List">
+        <source>Profesiones List</source>
+        <target>Profesiones List</target>
+      </trans-unit>
+      <trans-unit id="P70797Z" resname="Profesiones Create">
+        <source>Profesiones Create</source>
+        <target>Profesiones Create</target>
+      </trans-unit>
+      <trans-unit id="jeeiO7x" resname="Historiaclinica">
+        <source>Historiaclinica</source>
+        <target>Historiaclinica</target>
+      </trans-unit>
+      <trans-unit id="k7Kp73g" resname="Fecha">
+        <source>Fecha</source>
+        <target>Fecha</target>
+      </trans-unit>
+      <trans-unit id="LUmzaUJ" resname="Diagnosticoid">
+        <source>Diagnosticoid</source>
+        <target>Diagnosticoid</target>
+      </trans-unit>
+      <trans-unit id="DpjnGFp" resname="Historiaclinica List">
+        <source>Historiaclinica List</source>
+        <target>Historiaclinica List</target>
+      </trans-unit>
+      <trans-unit id="Rybdqu1" resname="Historiaclinica Create">
+        <source>Historiaclinica Create</source>
+        <target>Historiaclinica Create</target>
+      </trans-unit>
+      <trans-unit id="pwmidzz" resname="Diagnosticos">
+        <source>Diagnosticos</source>
+        <target>Diagnosticos</target>
+      </trans-unit>
+      <trans-unit id="gN8dF3W" resname="Codigo">
+        <source>Codigo</source>
+        <target>Codigo</target>
+      </trans-unit>
+      <trans-unit id="C7gCBgC" resname="Diagnosticos List">
+        <source>Diagnosticos List</source>
+        <target>Diagnosticos List</target>
+      </trans-unit>
+      <trans-unit id="CbhghV1" resname="Diagnosticos Create">
+        <source>Diagnosticos Create</source>
+        <target>Diagnosticos Create</target>
+      </trans-unit>
+      <trans-unit id="gXJv8Zo" resname="Estado List">
+        <source>Estado List</source>
+        <target>Estado List</target>
+      </trans-unit>
+      <trans-unit id="nJp5rRj" resname="Estado Create">
+        <source>Estado Create</source>
+        <target>Estado Create</target>
+      </trans-unit>
+      <trans-unit id="eo6BYxG" resname="Codigo Modulo">
+        <source>Codigo Modulo</source>
+        <target>Codigo Modulo</target>
+      </trans-unit>
+      <trans-unit id="7rd_snl" resname="Descripcion Modulo">
+        <source>Descripcion Modulo</source>
+        <target>Descripcion Modulo</target>
+      </trans-unit>
+      <trans-unit id="MoCVj4H" resname="Codigo Practica">
+        <source>Codigo Practica</source>
+        <target>Codigo Practica</target>
+      </trans-unit>
+      <trans-unit id="4OimJJE" resname="Descripcion Practica">
+        <source>Descripcion Practica</source>
+        <target>Descripcion Practica</target>
+      </trans-unit>
+      <trans-unit id="ITsCbpq" resname="Solicitud">
+        <source>Solicitud</source>
+        <target>Solicitud</target>
+      </trans-unit>
+      <trans-unit id="t1P9Jlh" resname="Renovacion">
+        <source>Renovacion</source>
+        <target>Renovacion</target>
+      </trans-unit>
+      <trans-unit id="6gLDJWu" resname="Transmisions">
+        <source>Transmisions</source>
+        <target>Transmisions</target>
+      </trans-unit>
+      <trans-unit id="owj1gnc" resname="Modulo List">
+        <source>Modulo List</source>
+        <target>Modulo List</target>
+      </trans-unit>
+      <trans-unit id="cVk3Xxf" resname="Modulo Create">
+        <source>Modulo Create</source>
+        <target>Modulo Create</target>
+      </trans-unit>
+      <trans-unit id="Td5vabN" resname="Cumplimiento">
+        <source>Cumplimiento</source>
+        <target>Cumplimiento</target>
+      </trans-unit>
+      <trans-unit id="fOkmac6" resname="Transmision List">
+        <source>Transmision List</source>
+        <target>Transmision List</target>
+      </trans-unit>
+      <trans-unit id="u7lcxU." resname="Transmision Create">
+        <source>Transmision Create</source>
+        <target>Transmision Create</target>
+      </trans-unit>
+      <trans-unit id="Sjy34mJ" resname="Montos">
+        <source>Montos</source>
+        <target>Montos</target>
+      </trans-unit>
+      <trans-unit id="ARVfTHt" resname="Fecha Desde">
+        <source>Fecha Desde</source>
+        <target>Fecha Desde</target>
+      </trans-unit>
+      <trans-unit id="GqOAMzB" resname="Fecha Hasta">
+        <source>Fecha Hasta</source>
+        <target>Fecha Hasta</target>
+      </trans-unit>
+      <trans-unit id="pcgt.6L" resname="Montos List">
+        <source>Montos List</source>
+        <target>Montos List</target>
+      </trans-unit>
+      <trans-unit id="JU_TRpc" resname="Montos Create">
+        <source>Montos Create</source>
+        <target>Montos Create</target>
+      </trans-unit>
+      <trans-unit id="cTzHJkw" resname="Practica">
+        <source>Practica</source>
+        <target>Practica</target>
+      </trans-unit>
+      <trans-unit id="ybPDgkf" resname="Total">
+        <source>Total</source>
+        <target>Total</target>
+      </trans-unit>
+      <trans-unit id="FUthsen" resname="Parcial">
+        <source>Parcial</source>
+        <target>Parcial</target>
+      </trans-unit>
+      <trans-unit id="3HqEf37" resname="Nulo">
+        <source>Nulo</source>
+        <target>Nulo</target>
+      </trans-unit>
+      <trans-unit id="saWwuwR" resname="Cumplimiento List">
+        <source>Cumplimiento List</source>
+        <target>Cumplimiento List</target>
+      </trans-unit>
+      <trans-unit id="GFssCO0" resname="Cumplimiento Create">
+        <source>Cumplimiento Create</source>
+        <target>Cumplimiento Create</target>
+      </trans-unit>
+      <trans-unit id="Cx7jtOz" resname="Envios">
+        <source>Envios</source>
+        <target>Envios</target>
+      </trans-unit>
+      <trans-unit id="d4BSOFZ" resname="Envios List">
+        <source>Envios List</source>
+        <target>Listar Envios</target>
+      </trans-unit>
+      <trans-unit id="GEu3Vyp" resname="Envios Create">
+        <source>Envios Create</source>
+        <target>Crear Envios</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

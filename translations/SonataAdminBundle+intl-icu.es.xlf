@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="jGl25bV" resname="Update">
+        <source>Update</source>
+        <target>Actualizar</target>
+      </trans-unit>
+      <trans-unit id="JfQ7FIa" resname="admin1">
+        <source>admin1</source>
+        <target>__admin1</target>
+      </trans-unit>
+      <trans-unit id="HBQrLQG" resname="admin2">
+        <source>admin2</source>
+        <target>__admin2</target>
+      </trans-unit>
+      <trans-unit id="ftQG7bv" resname="confirm_exit">
+        <source>confirm_exit</source>
+        <target>__confirm_exit</target>
+      </trans-unit>
+      <trans-unit id="wcIksDz" resname="Admin">
+        <source>Admin</source>
+        <target>__Admin</target>
+      </trans-unit>
+      <trans-unit id="mR3GCZj" resname="noscript_warning">
+        <source>noscript_warning</source>
+        <target>__noscript_warning</target>
+      </trans-unit>
+      <trans-unit id="WPzArF9" resname="toggle_navigation">
+        <source>toggle_navigation</source>
+        <target>__toggle_navigation</target>
+      </trans-unit>
+      <trans-unit id=".NYuTG5" resname="link_actions">
+        <source>link_actions</source>
+        <target>__link_actions</target>
+      </trans-unit>
+      <trans-unit id="xuJT.96" resname="Visitas">
+        <source>Visitas</source>
+        <target>__Visitas</target>
+      </trans-unit>
+      <trans-unit id="48MlJLh" resname="Ordenes de Prestacion">
+        <source>Ordenes de Prestacion</source>
+        <target>__Ordenes de Prestacion</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,46 @@
+{% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %} 
+
+{% set cl = {'00' : 'success', 999 : 'primary', 3 : 'danger', 4 : 'info', 5 : 'warning', 6 : 'danger', 7 : 'success'} %}
+{% block field%}
+    {# object.venta.financiacion.cuotas #}
+<table class="table table-bordered table-striped">
+        {% for eq in object.equipos %}
+            {% for pet in eq.profesionalesequipotrabajos %}
+            <th>Transmision</th>
+            <th>Profesional</th>
+            <th>Monto</th>
+            <th>Cantidad</th>
+            <tr>
+                <td>{{ pet.transmision}}</td>
+                <td>{{ pet.profesionales }}</td>
+                <td>{{ pet.monto.valor }}</td>
+                <td>{{ pet.cantidad }}</td>
+            </tr>
+                {% set i = 0 %}
+                {% set total = 0 %}
+                 <tr>
+                    <th></th>
+                    <th>Numero</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                 </tr>
+                {% for visita in pet.visitas %}
+                    {%  set i = i + 1 %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td>{{ visita.numeroVisita}}</td>
+                        <td>{{ visita.estado }}</td>
+                        <td>{{ visita.fechaInicio | date("d/m/Y H:i") }} | {{ visita.fechaFin | date("d/m/Y H:i") }}</td>
+                    </tr>
+                    {% set total = total + visita.valor %}
+                {% endfor %}
+                    <tr>
+                        <th bgcolor="grey"><font size ="3", color ="#ffffff">Total: ${{ total }}</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock%}
